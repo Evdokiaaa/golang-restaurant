@@ -20,6 +20,8 @@ func main() {
 	displayBillTitle()
 	printBill()
 
+	modifyOrder()
+
 	//end 
 	farewell(userName)
 	
