@@ -17,6 +17,9 @@ func main() {
 
 	orderItems()
 
+	displayBillTitle()
+	printBill()
+
 	//end 
 	farewell(userName)
 	

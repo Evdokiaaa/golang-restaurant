@@ -13,7 +13,7 @@ func orderItems() {
 	var itemId uint8
 	for {
 		fmt.Println("Введите 0 чтобы выйти из меню")
-		fmt.Printf("Введите номер товара из меню чтобы заказать: ")
+		fmt.Println("Введите номер товара из меню чтобы заказать: ")
 		fmt.Scan(&itemId)
 		if itemId == 0 {
 			break
