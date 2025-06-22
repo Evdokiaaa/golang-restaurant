@@ -25,27 +25,23 @@ func modifyOrder() {
 
 		switch changeNumber {
 			case 1:
-				var choice uint8;
-				var newQuantity uint8;
-				printModifyOrderMenu()
-				fmt.Printf("%s","Введите номер товара для изменения: ")
-				fmt.Scan(&choice)
-				fmt.Printf("%s","Введите новое количество товара: ")
-				fmt.Scan(&newQuantity)
-				
-				item:=menu[choice-1].name
-				customerOrder[item] = newQuantity
+				updateItemQuantity()
 				
 				//TODO: Возможно в будущем как то массив отсортировать
-				
 				printOrder()
 				modifyOrder()
 				
 			case 2:
-				fmt.Println("Введите номер товара для удаления:")
+			
+				deleteItem()
+				printOrder()
+				modifyOrder()
 			case 3:
 				//Туту будут функции
-				fmt.Println("Введите номер товара для добавления:")
+				addItem()
+				printOrder()
+				modifyOrder()
+				
 			default:
 				fmt.Println("Неверный выбор")
 				modifyOrder()
@@ -75,12 +71,32 @@ func printModifyOrderMenu(){
 }
 
 func updateItemQuantity(){
-
+	var choice uint8;
+	var newQuantity uint8;
+	printModifyOrderMenu()
+	fmt.Printf("%s","Введите номер товара для изменения: ")
+	fmt.Scan(&choice)
+	fmt.Printf("%s","Введите новое количество товара: ")
+	fmt.Scan(&newQuantity)
+	
+	item:=menu[choice-1].name
+	customerOrder[item] = newQuantity
 }
 func deleteItem(){
-
+	var choice uint8;
+	fmt.Println("Введите номер товара для удаления:")
+	fmt.Scan(&choice)
+	delete(customerOrder, menu[choice-1].name)
 }
 
 func addItem(){
+	var choice uint8;
+	var productQuantity uint8;
+	fmt.Println("Введите номер предмет для добавления:")
+	fmt.Scan(&choice)
+	fmt.Printf("%s","Введите количество товара: ")
+	fmt.Scan(&productQuantity)
+	customerOrder[menu[choice-1].name] = productQuantity
+
 
 }
